@@ -27,33 +27,40 @@ To ensure reproducibility, the analysis was conducted using a standardized R/Bio
 Before gene-level analysis, the quality and distribution of the data were validated to prevent batch effects and ensure statistical reliability.
 
 ![Boxplot](https://github.com/user-attachments/assets/5476568a-ba51-410c-95b1-8daf6f29e7c5)
+
  **Figure 1. Boxplot of Expression Value Distribution.** The median expression values across all samples align horizontally, indicating that the data is well-normalized and comparable across arrays.
 
 ![Density Plot](https://github.com/user-attachments/assets/a44133d6-acff-462f-860b-93a31570a782)
+
  **Figure 2. Density Plot of Gene Expression.** The density curves for both Glioblastoma and Normal groups overlap almost perfectly. This confirms the absence of massive global technical biases, ensuring that downstream DEG analysis captures true biological variance.
 
 ![UMAP Plot](https://github.com/user-attachments/assets/ea85c20b-d712-4d0e-b941-c99108d73f39)
+
  **Figure 3. UMAP Dimensionality Reduction.** The UMAP plot reveals a perfect, distinct spatial separation between Glioblastoma samples (Salmon) and Normal Brain samples (Turquoise). This confirms that the cancer induces a fundamental, global shift in the brain's transcriptomic identity prior to strict DEG filtering.
 
 **B. Transcriptomic Divergence (Volcano Plot)**
 The analysis revealed a stark and massive molecular separation between the cancerous and normal tissues. 
 
 ![Volcano Plot](https://github.com/user-attachments/assets/1c810f66-2480-4191-8282-bd9fcdc28364)
+
  **Figure 4. Volcano Plot of Glioblastoma vs. Normal Brain Tissue.** * **Up-regulated (Red):** Represents hyperactive oncogenes driving rapid cell division and tissue invasion.
 * **Down-regulated (Blue):** Represents normal neurological genes that are forcefully suppressed by the tumor, reflecting the loss of normal cognitive and sensory functions in the affected brain regions.
 
 **C. Core Tumor Signature (Top 50 DEGs Heatmap)**
 
 ![Heatmap Glioblastoma](https://github.com/user-attachments/assets/a79b73af-7746-4b1a-851e-0e452e68c455)
+
  **Figure 5. Heatmap of the Top 50 DEGs.** The heatmap acts as the definitive molecular fingerprint of the cancer. A stark color demarcation exists between the Normal tissue block and the Glioblastoma block. The hierarchical clustering at the top confirms that these 50 genes alone are sufficient to perfectly distinguish a healthy pediatric brain from a terminally ill one.
 
 **D. Functional Enrichment: The Modus Operandi**
 To understand the functional consequence of these transcriptomic shifts, GO and KEGG pathway analyses were conducted on the significant DEGs.
 
 ![Gene Ontology Glioblastoma](https://github.com/user-attachments/assets/b88cf2e2-1ea7-424f-9519-1cdb7b934c86)
+
  **Figure 6. Gene Ontology (GO) Enrichment.** The biological processes represent a dual narrative: the hyperactivation of *Chromosome Segregation* and *Ribonucleoprotein Complex Biogenesis* reflects the tumor's unchecked cellular replication, while terms like *Regulation of Neuron Projection Development* and *Synaptic Vesicle Cycle* correspond to the massive disruption of normal neural pathways.
 
 ![KEGG Pathway Glioblastoma](https://github.com/user-attachments/assets/d5f5d109-e9c7-49f4-961f-2def8ac49ae3)
+
  **Figure 7. KEGG Pathway Enrichment.** The primary hijacked biochemical routes include the **Cell Cycle** and **MAPK signaling pathway**, allowing the tumor to grow relentlessly. Furthermore, the activation of the **Focal Adhesion** and **Axon Guidance** pathways highlights the cancer's invasive capability to navigate, anchor into, and degrade the surrounding healthy brain matrix.
 
 ### IV. Conclusion
