@@ -21,50 +21,55 @@ To ensure reproducibility, the analysis was conducted using a standardized R/Bio
 3. **DEG Statistics:** Differential expression analysis was executed using the `limma` linear modeling framework. The statistical thresholds were strictly set at an Adjusted P-value < 0.01 and |LogFC| > 1.
 4. **Functional Enrichment:** Over-representation analysis for Gene Ontology (GO - Biological Process) and KEGG pathways was performed using `clusterProfiler` to translate significant DEGs into biological insights.
 
-### III. Results and Biological Interpretation
+### III. Results and Interpretations
 
 **A. Exploratory Data Analysis (EDA): The Global Shift**
 Before gene-level analysis, the quality and distribution of the data were validated to prevent batch effects and ensure statistical reliability.
 
-![Boxplot](https://github.com/user-attachments/assets/5476568a-ba51-410c-95b1-8daf6f29e7c5)
+![Boxplot](https://github.com/user-attachments/assets/615763e4-6336-43e4-ae5d-5606d891d240)
 
- **Figure 1. Boxplot of Expression Value Distribution.** The median expression values across all samples align horizontally, indicating that the data is well-normalized and comparable across arrays.
+ **Figure 1. Boxplot of Expression Value Distribution.** 
+ 
+ ![Density Plot](https://github.com/user-attachments/assets/26f182d4-4ecc-4285-bf0a-db082c2b7bdc)
+ 
+ **Figure 2. Density Plot of Gene Expression.**
+ 
+ ![UMAP Plot](https://github.com/user-attachments/assets/a700ed9d-251f-4659-8c57-956de0243897)
+ 
+ **Figure 3. UMAP Dimensionality Reduction.**  
+ 
+ **Results:** The median expression values (Boxplot) and density curves (Density Plot) across all samples align perfectly, confirming successful data normalization. Crucially, the UMAP plot reveals a distinct spatial separation between Glioblastoma samples (Salmon) and Normal Brain samples (Turquoise).
+* **Biological Interpretation & Impact:** This global separation proves that the cancer induces a fundamental reprogramming of the brain's transcriptomic identity. From a research perspective, this validates that the downstream DEG analysis will capture true pathological variance rather than technical noise.
 
-![Density Plot](https://github.com/user-attachments/assets/a44133d6-acff-462f-860b-93a31570a782)
+**B. Transcriptomic Divergence (Volcano Plot & Heatmap)**
 
- **Figure 2. Density Plot of Gene Expression.** The density curves for both Glioblastoma and Normal groups overlap almost perfectly. This confirms the absence of massive global technical biases, ensuring that downstream DEG analysis captures true biological variance.
+![Volcano Plot](https://github.com/user-attachments/assets/6aa2ac1d-a2b9-43de-98a1-363412b61ca1)
 
-![UMAP Plot](https://github.com/user-attachments/assets/ea85c20b-d712-4d0e-b941-c99108d73f39)
+ **Figure 4. Volcano Plot of Glioblastoma vs. Normal Brain Tissue.**
+ 
+ ![Heatmap Glioblastoma](https://github.com/user-attachments/assets/64e444e7-26e0-42ad-b1f8-1034e4d84f1b)
+ 
+ **Figure 5. Heatmap of the Top 50 DEGs.** 
+ 
+ **Results:** The Volcano plot displays a massive molecular divergence, with red dots indicating hyperactive oncogenes and blue dots representing suppressed normal genes. The Heatmap of the top 50 DEGs demonstrates a stark, absolute color demarcation between the Normal tissue block and the Glioblastoma block.
+* **Biological Interpretation & Impact:** The severe downregulation of normal neural genes illustrates how the tumor forcefully shuts down healthy cognitive and sensory functions to prioritize its own survival. Conversely, the top upregulated genes represent the core drivers of tumor malignancy. For future clinical applications, these top 50 DEGs serve as highly promising diagnostic biomarkers. Identifying these specific gene signatures in clinical biopsies could accelerate the accurate grading of pediatric brain tumors.
 
- **Figure 3. UMAP Dimensionality Reduction.** The UMAP plot reveals a perfect, distinct spatial separation between Glioblastoma samples (Salmon) and Normal Brain samples (Turquoise). This confirms that the cancer induces a fundamental, global shift in the brain's transcriptomic identity prior to strict DEG filtering.
+**C. Functional Enrichment: The Modus Operandi (GO & KEGG)**
 
-**B. Transcriptomic Divergence (Volcano Plot)**
-The analysis revealed a stark and massive molecular separation between the cancerous and normal tissues. 
-
-![Volcano Plot](https://github.com/user-attachments/assets/1c810f66-2480-4191-8282-bd9fcdc28364)
-
- **Figure 4. Volcano Plot of Glioblastoma vs. Normal Brain Tissue.** * **Up-regulated (Red):** Represents hyperactive oncogenes driving rapid cell division and tissue invasion.
-* **Down-regulated (Blue):** Represents normal neurological genes that are forcefully suppressed by the tumor, reflecting the loss of normal cognitive and sensory functions in the affected brain regions.
-
-**C. Core Tumor Signature (Top 50 DEGs Heatmap)**
-
-![Heatmap Glioblastoma](https://github.com/user-attachments/assets/a79b73af-7746-4b1a-851e-0e452e68c455)
-
- **Figure 5. Heatmap of the Top 50 DEGs.** The heatmap acts as the definitive molecular fingerprint of the cancer. A stark color demarcation exists between the Normal tissue block and the Glioblastoma block. The hierarchical clustering at the top confirms that these 50 genes alone are sufficient to perfectly distinguish a healthy pediatric brain from a terminally ill one.
-
-**D. Functional Enrichment: The Modus Operandi**
-To understand the functional consequence of these transcriptomic shifts, GO and KEGG pathway analyses were conducted on the significant DEGs.
-
-![Gene Ontology Glioblastoma](https://github.com/user-attachments/assets/b88cf2e2-1ea7-424f-9519-1cdb7b934c86)
-
- **Figure 6. Gene Ontology (GO) Enrichment.** The biological processes represent a dual narrative: the hyperactivation of *Chromosome Segregation* and *Ribonucleoprotein Complex Biogenesis* reflects the tumor's unchecked cellular replication, while terms like *Regulation of Neuron Projection Development* and *Synaptic Vesicle Cycle* correspond to the massive disruption of normal neural pathways.
-
-![KEGG Pathway Glioblastoma](https://github.com/user-attachments/assets/d5f5d109-e9c7-49f4-961f-2def8ac49ae3)
-
- **Figure 7. KEGG Pathway Enrichment.** The primary hijacked biochemical routes include the **Cell Cycle** and **MAPK signaling pathway**, allowing the tumor to grow relentlessly. Furthermore, the activation of the **Focal Adhesion** and **Axon Guidance** pathways highlights the cancer's invasive capability to navigate, anchor into, and degrade the surrounding healthy brain matrix.
+![Gene Ontology Glioblastoma](https://github.com/user-attachments/assets/537a9a87-959a-4fc7-97d3-f1e86f2b63d5)
+ 
+ **Figure 6. Gene Ontology (GO) Enrichment.**
+ 
+ ![KEGG Pathway Glioblastoma](https://github.com/user-attachments/assets/91f70e29-9afe-42b1-a324-0e41323c7ca0)
+ 
+ **Figure 7. KEGG Pathway Enrichment.** 
+ 
+ **Results:** GO analysis shows a hyperactivation in *Chromosome Segregation* and *Ribonucleoprotein Complex Biogenesis*, coupled with a suppression in *Synaptic Vesicle Cycle*. KEGG analysis reveals that the primary hijacked biochemical routes are the **Cell Cycle**, **MAPK signaling pathway**, and **Focal Adhesion**.
+* **Biological Interpretation & Impact:** The enrichment data perfectly decodes the tumor's lethal behavior. The hijacking of the *Cell Cycle* and *MAPK signaling* pathways explains the tumor's relentless, unconstrained growth, while *Focal Adhesion* activation explains its aggressive ability to infiltrate and degrade surrounding healthy brain matter. 
+* **Future Research Implications:** This finding is critical for precision medicine. Because we now know the exact pathways driving the cancer, future therapeutic developments can pivot away from generalized chemotherapy and focus on targeted therapies—such as CDK inhibitors to block the hijacked cell cycle, or specific MAPK pathway antagonists, directly disarming the tumor's primary weapons.
 
 ### IV. Conclusion
-This study concludes that Pediatric Glioblastoma Multiforme (Grade IV) possesses a transcriptomic profile that completely overhauls normal neurological functions. The genetic expression shifts in GBM are heavily concentrated on hijacking the *Cell Cycle*, *MAPK signaling*, and *Chromosome Segregation* pathways to facilitate lethal, unchecked proliferation, while simultaneously suppressing normal synaptic transmissions. Mapping these specific pathways provides a clearer understanding of the tumor's aggressiveness and highlights critical vulnerabilities for future targeted therapies.
+This study concludes that Pediatric Glioblastoma Multiforme (Grade IV) possesses a transcriptomic profile that completely overhauls normal neurological functions. The genetic expression shifts in GBM are heavily concentrated on hijacking the *Cell Cycle*, *MAPK signaling*, and *Chromosome Segregation* pathways to facilitate lethal, unchecked proliferation, while simultaneously suppressing normal synaptic transmissions. Mapping these specific pathways not only provides a molecular explanation for the tumor's extreme aggressiveness but also highlights critical vulnerabilities (such as the MAPK and Cell Cycle pathways) that can be exploited for future targeted therapies in pediatric neuro-oncology.
 
 ### V. References
 [1] Griesinger, A. M., et al. (2013). *Dataset GSE50161: Gene expression profiling of human brain tumors*. Gene Expression Omnibus (GEO).  
